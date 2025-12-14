@@ -11,11 +11,9 @@ connectDB();
 app.use(cors());
 app.use(express.json());
 
-app.get('/', (req, res) => {
-  res.status(200).json({
-    success: true,
-    message: 'Server is running',
-  });
+
+app.get('/health', (req, res) => {
+  res.status(200).send('Server is running');
 });
 
 app.use('/api/donors', donorRoutes);
